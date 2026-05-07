@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { AnimatePresence, MotionConfig, motion } from "framer-motion";
+import type { Variants } from "framer-motion";
 import { useEffect, useState, type ReactNode } from "react";
 import {
   ArrowRight,
@@ -37,9 +38,9 @@ const sectionIn = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] as const },
   },
-};
+} satisfies Variants;
 
 const stagger = {
   hidden: { opacity: 0 },
@@ -47,7 +48,7 @@ const stagger = {
     opacity: 1,
     transition: { staggerChildren: 0.08 },
   },
-};
+} satisfies Variants;
 
 const services = [
   {
